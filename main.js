@@ -76,7 +76,13 @@ function LanguageListButton_Click() {
 }
 
 function DownloadButton_Click() {
-    console.log("null");
+    var aDownload = document.createElement("a");
+    aDownload.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(getValue()));
+    aDownload.setAttribute("download", getValue().substr(0, 7).replace(/[/\\?%*:|"<>]/g, "-"));
+    aDownload.style.display = "none";
+    document.body.appendChild(aDownload);
+    aDownload.click();
+    document.body.removeChild(aDownload);
 }
 
 languageInputBox.addEventListener("keypress", (event) => {
