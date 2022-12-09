@@ -62,15 +62,25 @@ function SetLanguageButton_Click() {
 var isLangListHidden = true;
 function CloseLangListButton_Click() {
     isLangListHidden = true;
-    languageListsMenu.setAttribute("style", "display: none;");
+    languageListsMenu.setAttribute("class", "languageListsContainerHidden");
 }
 
 function LanguageListButton_Click() {
     if (isLangListHidden == true) {
         isLangListHidden = false;
-        languageListsMenu.setAttribute("style", "display: block;");
+        languageListsMenu.setAttribute("class", "languageListsContainerVisible");
     } else {
         isLangListHidden = true;
-        languageListsMenu.setAttribute("style", "display: none;");
+        languageListsMenu.setAttribute("class", "languageListsContainerHidden");
     }
 }
+
+function DownloadButton_Click() {
+    console.log("null");
+}
+
+languageInputBox.addEventListener("keypress", (event) => {
+    if (event.key == "Enter") {
+        monaco.editor.setModelLanguage(editor.getModel(), languageInputBox.value);
+    }
+});

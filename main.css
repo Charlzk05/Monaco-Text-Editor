@@ -7,11 +7,31 @@ html, body {
 }
 .languageLists p {
     border-radius: 10px;
+    transition: all 0.2s;
 }
 .languageLists p:hover {
     background-color: #444;
     padding: 10px;
+    font-size: 16px;
+    transition: all 0.2s;
 }
-.languageListsContainer {
-    background-color: #333; position: fixed; height: 100%; width: 300px; z-index: 1;
+.languageListsContainerHidden {
+    color: white;
+    background-color: #333; 
+    position: fixed; 
+    height: 100%;
+    width: 300px;
+    z-index: 1;
+    left: -300px;
+    transition: all 0.5s;
+}
+.languageListsContainerVisible {
+    color: white;
+    background-color: #333; 
+    position: fixed; 
+    height: 100%;
+    width: 300px;
+    z-index: 1;
+    left: 0;
+    transition: all 0.5s;
 }
