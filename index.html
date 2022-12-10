@@ -105,12 +105,15 @@
             <button class="btn btn-primary" style="margin-left: 10px;" onclick="UpperCaseButton_Click()">Upper Case</button>
             <button class="btn btn-primary" style="margin-left: 10px;" onclick="LowerCaseButton_Click()">Lower Case</button>
             <button class="btn btn-success" style="margin-left: 10px;" onclick="ClearTextButton_Click()">Clear Text</button>
-            <button class="btn btn-warning" style="margin-left: 10px;" onclick="DownloadButton_Click()">Download</button>
             <button class="btn btn-danger" style="margin-left: 10px;" onclick="SetLanguageButton_Click()">Set Language</button>
             <input type="text" placeholder="ex. html, css, javascript, python ...." id="languageInputBox" class="form-control bg-dark border-danger text-white" style="width: 20%; margin-left: 10px;">
             <button class="btn btn-danger" style="margin-left: 10px;" onclick="LanguageListButton_Click()">Language List</button>
         </div>
-        <div id="container" style="width: 100%; height: 60%; margin-top: 10px; display: flex; justify-content: center;" class="border border-secondary"></div>
+        <div id="container" style="width: 100%; height: 70%; margin-top: 10px; display: flex; justify-content: center;" class="border border-secondary"></div>
+        <div style="margin: 10px;">
+            <button class="btn btn-warning" onclick="DownloadButton_Click()">Download</button>
+            <input type="text" id="fileNameInputBox" placeholder='File name ... do not include illegal filename /\\?%*:|"<>] ...' style="margin-top: 10px;" class="form-control bg-dark border-warning text-white">
+        </div>
     </div>
     <script src="./vs/loader.js"></script>
     <script src="./main.js"></script>

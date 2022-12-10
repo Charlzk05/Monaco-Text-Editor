@@ -1,5 +1,6 @@
 const languageInputBox = document.getElementById("languageInputBox");
 const languageListsMenu = document.getElementById("languageListsMenu");
+const fileNameInputBox = document.getElementById("fileNameInputBox");
 
 var editor;
 var value = '';
@@ -75,15 +76,35 @@ function LanguageListButton_Click() {
     }
 }
 
-function DownloadButton_Click() {
-    var aDownload = document.createElement("a");
-    aDownload.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(getValue()));
-    aDownload.setAttribute("download", getValue().substr(0, 7).replace(/[/\\?%*:|"<>]/g, "-"));
-    aDownload.style.display = "none";
-    document.body.appendChild(aDownload);
-    aDownload.click();
-    document.body.removeChild(aDownload);
+function downloadFunc() {
+    if (fileNameInputBox.value.includes(".")) {
+        var aDownload = document.createElement("a");
+        aDownload.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(getValue()));
+        aDownload.setAttribute("download", fileNameInputBox.value.replace(/[/\\?%*:|"<>]/g, "-"));
+        aDownload.style.display = "none";
+        document.body.appendChild(aDownload);
+        aDownload.click();
+        document.body.removeChild(aDownload);
+    } else {
+        var aDownload = document.createElement("a");
+        aDownload.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(getValue()));
+        aDownload.setAttribute("download", fileNameInputBox.value.replace(/[/\\?%*:|"<>]/g, "-") + ".txt");
+        aDownload.style.display = "none";
+        document.body.appendChild(aDownload);
+        aDownload.click();
+        document.body.removeChild(aDownload);
+    }
 }
+
+function DownloadButton_Click() {
+    downloadFunc();
+}
+
+fileNameInputBox.addEventListener("keypress", (event) => {
+    if (event.key == "Enter") {
+        downloadFunc();
+    }
+});
 
 languageInputBox.addEventListener("keypress", (event) => {
     if (event.key == "Enter") {
