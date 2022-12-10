@@ -1,3 +1,2 @@
 ## Monaco Text Editor
-
-A Monaco Text Editor
+A simple monaco web text editor
